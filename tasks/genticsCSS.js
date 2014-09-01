@@ -103,7 +103,7 @@ module.exports = function (grunt) {
 					fileType = parts[1];
 
 				if (fs.existsSync(assetPath)) {
-					if (["eot", "svg", "tiff", "woff", "htc", "ttf"].indexOf(fileType) > -1) {
+					if (["eot", "tiff", "woff", "htc", "ttf"].indexOf(fileType) > -1) {
 						folder = options.fontsFolder;
 						nodeType = "dateiurl";
 					}
@@ -116,7 +116,7 @@ module.exports = function (grunt) {
 				}
 
 				// Create node tag.
-				nodeTag = "<node " + options.project + "_" + fileName.toLowerCase().replace(/[-\.\s]/g, "_") + "_" + nodeType + ">"
+				nodeTag = "<node " + options.project + "_" + fileName.toLowerCase().replace(/[\.\s]/g, "_").replace(/\-/g, "") + "_" + nodeType + ">"
 				if (nodeTags.indexOf(nodeTag) === -1) {
 					nodeTags.push(nodeTag);
 				}
