@@ -8,8 +8,7 @@
 
 "use strict";
 
-var fs = require("fs"),
-	Q = require("q");
+var fs = require("fs");
 
 module.exports = function (grunt) {
 	grunt.registerTask("genticsCSS", function () {
@@ -127,7 +126,7 @@ module.exports = function (grunt) {
 
 
 			// Save CSS file.
-			fs.writeFile(options.baseFolder + "/" + options.stylesFolder + "/" + path.substring(path.lastIndexOf("/") + 1), css, "utf-8");
+			grunt.file.write(options.baseFolder + "/" + options.stylesFolder + "/" + path.substring(path.lastIndexOf("/") + 1), css, { encoding: "utf8" });
 
 			// Log statistics.
 			console.log("File: " + path.substring(path.lastIndexOf("/") + 1));
@@ -162,7 +161,7 @@ module.exports = function (grunt) {
 			console.log("Node tags:");
 			console.log(nodeTags.join("\n"));
 
-			fs.writeFile(options.baseFolder + "/nodes.txt", nodeTags.join("\n"), "utf-8", function (err) {
+			grunt.file.write(options.baseFolder + "/nodes.txt", nodeTags.join("\n"), { encoding: "utf8" }, function (err) {
 				console.log(err);
 			});
 		}
