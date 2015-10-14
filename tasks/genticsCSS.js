@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 		});
 
 		var optimizeFile = function (path, css) {
-			var assets = css.match(/url\(([^)]+)\)/g),
+			var assets = css.match(/url\((?!["']?data:)([^)]+)\)/g),
 				notExisting = [],
 				counterCopied = 0,
 				counterReplaced = 0;
