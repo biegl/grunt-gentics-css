@@ -1,6 +1,6 @@
 {
 	"name": "grunt-gentics-css",
-	"version": "1.0.0",
+	"version": "1.0.5",
 	"description": "Replaces CSS assets with tags",
 	"main": "Gruntfile.js",
 	"directories": {
